@@ -1,4 +1,4 @@
-rm -rf obj_x86 axireg
-git add .
-git commit -m "No change history kept"
-git push origin main
+rm -rf x86_obj axireg
+#git add .
+#git commit -m "No change history kept"
+#git push origin main
