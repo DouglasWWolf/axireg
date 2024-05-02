@@ -161,7 +161,17 @@ int main(int argc, const char** argv)
         if (error) printf("Error: read-response = %i\n", error);
 
         // Otherwise, display the data value we read
-        else printf("%u (0x%08X)\n", data, data);
+        else switch (output_mode)
+        {
+            case OM_DEC:   printf("%u\n", data);
+                           break;
+            case OM_HEX:   printf("%08X\n", data);
+                           break;
+            case OM_BOTH:  printf("%u %08X\n", data, data);
+                           break;
+            default:       printf("0x%08X (%u)\n", data, data);
+        }
+
     }
 
  
