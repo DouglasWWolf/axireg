@@ -19,8 +19,9 @@ const int OM_BOTH = 3;
 int output_mode = OM_NONE;
 
 bool isAxiWrite;
-
-uint64_t address = UNSET, data;
+ 
+uint64_t address = UNSET;
+uint32_t data;
 
 
 //=============================================================================
@@ -128,7 +129,6 @@ string get_device_name()
 int main(int argc, const char** argv)
 {
     int error;
-    uint32_t data;
 
     // Parse the command line
     parseCommandLine(argv);
@@ -143,7 +143,7 @@ int main(int argc, const char** argv)
         exit(1);        
     }
 
-    // If the user wants to perform an AXI read...
+    // If the user wants to perform an AXI write...
     if (isAxiWrite)
     {
         // Perform the AXI write
